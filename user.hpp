@@ -27,9 +27,118 @@ class User{
     // contact_info (CharField, optional): Additional contact details (phone number, etc.)
     STRING contact_info;
     // account_status (CharField): Status of the user account (active, inactive, locked)
-    STRING account_status;
+    AccountStatus account_status;
     // user_type (ForeignKey to UserType model, optional): Defines user type (librarian, patron, guest)
-    STRING user_type;
+    TypeOfTheUser user_type;
+};
+
+
+// USER builder class
+class UserBuilder{
+    private:
+    // id (integer): Unique identifier (primary key)
+    INT id;
+    // username (CharField): Username for login
+    STRING username;
+    // password (CharField): Hashed password for secure storage
+    STRING password;
+    // first_name (CharField): User's first name
+    STRING first_name;
+    // last_name (CharField): User's last name
+    STRING last_name;
+    // email (EmailField): User's email address
+    STRING email;
+    // contact_info (CharField, optional): Additional contact details (phone number, etc.)
+    STRING contact_info;
+    // account_status (CharField): Status of the user account (active, inactive, locked)
+    AccountStatus account_status;
+    // user_type (ForeignKey to UserType model, optional): Defines user type (librarian, patron, guest)
+    TypeOfTheUser user_type;
+
+    public:
+
+    /*
+    ****************************************
+    Function : SetUserName
+    Arguments : username of the user
+    Returns : this UserBuilder Object
+    ****************************************
+    */
+    UserBuilder* SetUserName(STRING userName);
+
+    /*
+    ****************************************
+    Function : SetPassword
+    Arguments : password of the user account
+    Returns : this UserBuilder object 
+    ****************************************
+    */
+    UserBuilder* SetPassword(STRING pswd);
+
+    /*
+    *****************************************
+    Function : SetFirstName
+    Arguments : User First Name
+    Returns : this UserBuilder Object
+    *****************************************
+    */
+    UserBuilder* SetFirstName(STRING fName);
+
+    /*
+    ******************************************
+    Function : SetLastName
+    Arguments : Last Name of the User
+    Returns : this UserBuilder object
+    ******************************************
+    */
+    UserBuilder* SetLastName(STRING lName);
+
+    /*
+    *******************************************
+    Function : SetEMail
+    Arguments : email id of the user
+    Returns : this UserBuilder object
+    *******************************************
+    */
+    UserBuilder* SetEMail(STRING eMail);
+
+    /*
+    *******************************************
+    Function : SetContactInfo
+    Arguments : User contact info
+    Returns : this UserBuilder object
+    *******************************************
+    */
+    UserBuilder* SetContactInfo(STRING contInfo);
+
+    /*
+    *******************************************
+    Function : SetAccountStatus
+    Arguments : Use Account activity status
+    Returns : this UserBuilder object
+    *******************************************
+    */
+    UserBuilder* SetAccountStatus(AccountStatus status);
+
+    /*
+    *******************************************
+    Function : SetUserType
+    Arguments : Type of the User
+    Returns : this UserBuilder object
+    *******************************************
+    */
+    UserBuilder* SetUserType(TypeOfTheUser userType);
+
+    /*
+    *******************************************
+    Function: Build
+    Arguments : NA
+    Returns : New User Object created from UserBuilder object
+    *******************************************
+    */
+    User* Build();
+
+
 };
 
 // User Type Model
